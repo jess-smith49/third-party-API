@@ -30,9 +30,11 @@ $(".save").click(function(){
     console.log("save");
     
     let saveBtnID = $(this).data("id")
-    let userInput = $('.block${saveBtnId} p').text();
+    let userInput = $(`.block${saveBtnId} p`).text();
     dataArr[parseInt(saveBtnID)] = userInput
     localStorage.setItem("timeblocks", JSON.stringify(dataArr));
+
+    console.log(dataArr);
     
     //change lock button image
 });
