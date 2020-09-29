@@ -23,19 +23,21 @@ $(".schedInput").click(function(){
 
 })
 
+//create array
+var dataArr = [];
 //save click event//can't click unless timeblock has been edited
 $(".save").click(function(){
     console.log("save");
     
-    //let userInput = $(this).siblings(".d-block").val();
-    //localStorage.setItem($(this), userInput)
-    localStorage.setItem("timeblocks", schedEvent);
-    console.log(userInput);
+    let saveBtnID = $(this).data("id")
+    let userInput = $('.block${saveBtnId} p').text();
+    dataArr[parseInt(saveBtnID)] = userInput
+    localStorage.setItem("timeblocks", JSON.stringify(dataArr));
     
     //change lock button image
 });
 
-localStorage.getItem("timeblocks");
+//JSON.parse(localStorage.getItem("timeblocks"));
 
 
 
