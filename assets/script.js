@@ -17,7 +17,7 @@ $(".schedInput").click(function(){
     var text = $(this).text();
     //should i add all classes from the d-block?
     //allows user to input an event for that specific block
-    var schedEvent = $("<textarea>").addClass("d-block p-2 bg-primary text-white w-100").val(text);
+    schedEvent = $("<textarea>").addClass("d-block p-2 bg-primary text-white w-100").val(text);
     //replaces current value with new input
     $(this).replaceWith(schedEvent);
 
@@ -27,9 +27,11 @@ $(".schedInput").click(function(){
 $(".save").click(function(){
     console.log("save");
     
+    //let userInput = $(this).siblings(".d-block").val();
+    //localStorage.setItem($(this), userInput)
     localStorage.setItem("timeblocks", schedEvent);
-   
-    localStorage();
+    console.log(userInput);
+    
     //change lock button image
 });
 
