@@ -12,6 +12,7 @@ headerDate();
 //on click event for input to schedule
 $(".schedInput").click(function(){
     //make sure it works
+    event.preventDefault();
     console.log("clicked");
     
     var text = $(this).text();
@@ -31,7 +32,7 @@ $(".save").click(function(){
     console.log("save");
     
     let saveBtnID = $(this).data("id")
-    
+
     let userInput = $(`.block${saveBtnID}`).val();
 
     dataArr[parseInt(saveBtnID)] = userInput
