@@ -16,7 +16,8 @@ $(".schedInput").click(function(){
     console.log("clicked");
     
     var text = $(this).text();
-    //should i add all classes from the d-block?
+    //should i add all classes from the d-block?need something to keep track of the blocks//putting "block0" into the HTML helps save to local storage for the time being
+    //need to have the block id-s aligned with the save buttons and times
 
     //allows user to input an event for that specific block//creates new textarea element
     schedEvent = $("<textarea>").addClass("d-block p-2 bg-primary text-white w-100").val(text);
