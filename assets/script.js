@@ -21,7 +21,7 @@ console.log(dataArr);
 //create function that will replace 
 var displayStorage = function(){
     /*for(var i = 0; i < dataArr.length; i ++){
-
+        
     }*/
     
 
