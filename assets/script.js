@@ -1,14 +1,26 @@
-//global variables for local storage
+//GLOBAL VARIABLES
+
+//selecting timeblocks class and assigning variable
 var schedEvent = document.querySelector("#timeblocks");
+//changes data from string back to an array
 var localStorage = JSON.parse(localStorage.getItem("timeblocks"));
+//creating new array with specific length
 var dataArr = new Array(9);
 //console.log(JSON.parse(localStorage.timeblocks));
 console.log(localStorage);
 
- 
-//checks to see if property tieblocks in local storage
+//CURRENT DATE DISPLAY
+var headerDate = function(){
+    //create variable, use text to show string value of date
+   var currentDate = $("#currentDay").text(moment().format("MMM Do YY"));   
+}
+headerDate();
+
+//LOCAL STORAGE CHECKS
+    //checks to see if property timeblocks in local storage
+    //before display to make sure local storage does display if there are values
 if ("timeblocks" in localStorage){
-    console.log("saved data");
+   // console.log("saved data");
     dataArr = JSON.parse(localStorage.timeblocks);
 }
 else{
@@ -16,85 +28,75 @@ else{
     //empty strings for no data 
     dataArr = new Array(9).fill("");
 }
-console.log(dataArr);
+//console.log(dataArr);
 
-//create function that will replace 
+    //create function that will replace 
 var displayStorage = function(){
     /*for(var i = 0; i < dataArr.length; i ++){
-        
+        //displaying it
+        //var display = $(".block").text(dataArr[i]);
+        var display = localStorage.getItem(dataArr[i]);
     }*/
     
-
+    //THIS WORKS TO DISPLAY BLOCK//Could use for loop for ease
     $("#block0").text(dataArr[0]);
+    $("#block1").text(dataArr[1]);
+    $("#block2").text(dataArr[2]);
+    $("#block3").text(dataArr[3]);
+    $("#block4").text(dataArr[4]);
+    $("#block5").text(dataArr[5]);
+    $("#block6").text(dataArr[6]);
+    $("#block7").text(dataArr[7]);
+    $("#block8").text(dataArr[8]);
 }
 
 displayStorage();
 
-
-//current date display
-var headerDate = function(){
-    //create variable, use text to show string value of date
-   var currentDate = $("#currentDay").text(moment().format("MMM Do YY"));   
-}
-headerDate();
-
-//on click event for input to schedule
-/*$(".schedInput").click(function(e){
-    //make sure it works
-    event.preventDefault();
-    //see what it targets + its value
-    console.log(e.target.innerHTML);
-
-    
-    var text = $(this).text();
-    console.log($(this).text());
-    //should i add all classes from the d-block?need something to keep track of the blocks//putting "block0" into the HTML helps save to local storage for the time being
-    //need to have the block id-s aligned with the save buttons and times
-
-    //allows user to input an event for that specific block//creates new textarea element
-    //schedEvent = $("<textarea>").addClass("d-block p-2 bg-primary text-white w-100").val(text);
-    //replaces current value with new input
-    $(this).replaceWith(schedEvent);
-
-})*/
-
-
-
-//create array
-
-//save click event//can't click unless timeblock has been edited
+//SAVE CLICK FOR ITEM TO LOCAL STORAGE
+    //save click event//can't click unless timeblock has been edited
 $(".save").click(function(){
-    console.log("save");
+    //console.log("save");
     
     let saveBtnID = $(this).data("id")
     //console.log(saveBtnID);
 
     let userInput = $(`#block${saveBtnID}`).val();
-    console.log(userInput);
+    //console.log(userInput);
 
     dataArr[parseInt(saveBtnID)] = userInput
+
     //changes array into a string 
     localStorage.setItem("timeblocks", JSON.stringify(dataArr));
     
     //checking if it works
-    console.log(dataArr);
+    //console.log(dataArr);
     
     //change lock button image
 });
 
-//changes data from string back to an array 
-//JSON.parse(localStorage.getItem("timeblocks"));
 
-
-
-
-
-
-//color coding for timeblock functions//for each function????//should i add a class for each one?
+var schedTime = function(schedEvent){
+    //getting current hour for timeblocks to compare to 
+    var presentTime = moment().hour();
+    var clockTime = $().data("id")
+    
+    
+    //if timeblock is present hour show green
+    /*if (presentTime === clockTime){
+        $(this).removeClass("bg-black")
+        $(this).addClass("bg-green")
+    }*/
+    //if timeblock is past hour show black
+    //if timeblock is future hour show yellow
+    console.log(clockTime);
 
     
-//click save event to local storage
+
+    
+}
+schedTime();
 
 
 
-//on click save, change image to lock button
+
+
