@@ -1,13 +1,17 @@
----------GIVEN I am using a daily planner to create a schedule
-----------WHEN I open the planner
-----------THEN the current day is displayed at the top of the calendar
-----------WHEN I scroll down
-----------THEN I am presented with time blocks for standard business hours
-WHEN I view the time blocks for that day
-THEN each time block is color-coded to indicate whether it is in the past, present, or future
----------WHEN I click into a time block
----------THEN I can enter an event
----------WHEN I click the save button for that time block
----------THEN the text for that event is saved in local storage
----------WHEN I refresh the page
----------THEN the saved events persist
+# Scheduler
+
+# Description
+
+This is a third-party-API site that displays the current date at the head of the page. This allows the user to input an event and save it to their local storage, and when refreshed, their events are still on saved to the page. 
+
+This project allowed me to focus on using Bootstrap and jQuery for design and functionality, with given CSS and minimal given HTML.
+
+# Technologies 
+
+For this I used JavaScript, HTML, Bootstrap, jQuery, and Moment.js for functionality. I also used GitHub to store my code and for updates to my code. This project is currently being hosted on GitHub pages
+
+Screenshot to Functional Application:
+![](scheduler.png)
+
+Link to Deployed Application
+https://jess-smith49.github.io/third-party-API/

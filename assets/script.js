@@ -79,9 +79,9 @@ var schedTime = function(schedEvent){
     //getting current hour for timeblocks to compare to 
     var presentTime = moment().hour();
     //variable for template literal for embedding variable in strings
-    var selectorSting = `p[data-id='${clockTime}']`
+    var selectorString = `p[data-id='${clockTime}']`
     //getting the exact data id from the variable above
-    var clockTime = $(selectorSting).data("id")
+    var clockTime = $(selectorString).data("data-id")
 
 
     console.log(clockTime)
