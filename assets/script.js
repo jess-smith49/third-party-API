@@ -78,25 +78,36 @@ $(".save").click(function(){
 var schedTime = function(schedEvent){
     //getting current hour for timeblocks to compare to 
     var presentTime = moment().hour();
-    var clockTime = $().data("id")
-    
-    
-    //if timeblock is present hour show green
-    /*if (presentTime === clockTime){
-        $(this).removeClass("bg-black")
-        $(this).addClass("bg-green")
-    }*/
-    //if timeblock is past hour show black
-    //if timeblock is future hour show yellow
-    console.log(clockTime);
+    //variable for template literal for embedding variable in strings
+    var selectorSting = `p[data-id='${clockTime}']`
+    //getting the exact data id from the variable above
+    var clockTime = $(selectorSting).data("id")
 
-    
 
+    console.log(clockTime)
+    console.log(presentTime)
+    
+    //if timeblock is present hour show present class in CSS
+    if (presentTime === clockTime){
+        $(".block-time").removeClass("bg-dark")
+        $(".block-time").addClass ("present")
+        
+    }
+    //if time block is in future show future color class in CSS
+    else if (presentTime > clockTime){
+        $(".block-time").removeClass("bg-black")
+        $(".block-time").addClass("future")
+    }
+    //if time block is in past show future color class in CSS
+    else if(presentTime < clockTime){
+        $(".block-time").removeClass("bg-black")
+        $(".block-time").addClass("past")
+    }
     
 }
 schedTime();
-
-
+//updates every hour in milliseconds
+setInterval(schedTime, 3600000);
 
 
 
